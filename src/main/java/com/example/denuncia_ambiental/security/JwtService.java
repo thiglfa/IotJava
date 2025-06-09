@@ -36,6 +36,10 @@ public class JwtService {
                 .compact();
     }
 
+    // Extrai o username (email) do token JWT
+    public String extractUsername(String token) {
+        return extrairClaim(token, Claims::getSubject);
+    }
     public String extrairEmail(String token) {
         return extrairClaim(token, Claims::getSubject);
     }
